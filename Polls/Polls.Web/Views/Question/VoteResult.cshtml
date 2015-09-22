@@ -1,0 +1,36 @@
+﻿@model Polls.Domain.Models.Question
+
+@{
+    ViewBag.Title = "Voteresult";
+}
+
+<h2>Voteresult</h2>
+
+<fieldset>
+    <legend>Voteresult</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.QuestionText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionText)
+    </div>
+
+    <table>
+        <tr>
+                  <th>Alternative</th>
+                  <th>Votes</th>
+              </tr>
+        @foreach (var alternative in Model.Alternatives)
+        {
+            <tr>
+                <td>@alternative.AlternativeText</td>
+                <td>@alternative.Votes</td>
+            </tr>
+        }
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to question", "Vote", new { id = Model.Id }) |
+    @Html.ActionLink("Back to question list", "Index", "Home")
+</p>

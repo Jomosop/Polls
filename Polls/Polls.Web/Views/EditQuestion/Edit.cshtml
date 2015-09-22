@@ -1,0 +1,17 @@
+﻿@model List<Polls.Domain.Models.Question>
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<ul>
+    @foreach (var question in Model)
+    {
+        <li>@Html.ActionLink(question.QuestionText, "EditQuestion",  new { question.Id }, null)</li>
+    }
+</ul>
+<p>
+    @Html.ActionLink("New question", "NewQuestion") |
+    @Html.ActionLink("Back to Vote List", "Index", "Home")
+</p>

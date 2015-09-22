@@ -1,0 +1,15 @@
+﻿@model Polls.Domain.Models.Question
+
+@{
+    ViewBag.Title = "VoteDenied";
+}
+
+<h2>VoteDenied</h2>
+
+<p>You are not allowed to vote more than once a day on a question.</p>
+
+<p>
+    @Html.ActionLink("Back to question", "Vote", new { id = Model.Id }) |
+    @Html.ActionLink("Back to question list", "Index", "Home")
+</p>
+

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Polls.Domain.Models.Question>
+
+@{
+    ViewBag.Title = "Polls";
+}
+
+<h2>Questions</h2>
+<ul>
+    @foreach (var question in Model)
+    {
+        <li>@Html.ActionLink(question.QuestionText,"Vote","Question",new{question.Id},null)</li>
+    }
+</ul>

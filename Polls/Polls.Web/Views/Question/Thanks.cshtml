@@ -1,0 +1,28 @@
+﻿@model Polls.Domain.Models.Question
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<h2>Thank you for your vote!</h2>
+<br/>
+<h3>Vote results for question: @Model.QuestionText</h3>
+<table>
+    <tr>
+        <th>Alternative</th>
+        <th>Votes</th>
+    </tr>
+    @foreach (var alternative in Model.Alternatives)
+    {
+        <tr>
+            <td>@alternative.AlternativeText</td>
+            <td>@alternative.Votes</td>
+        </tr>
+    }
+</table>
+
+
+
+<p>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>

@@ -1,0 +1,34 @@
+﻿@using Polls.Web.Models
+@model Polls.Domain.Models.Question
+
+@{
+    ViewBag.Title = "Vote";
+}
+
+<h2>Vote</h2>
+
+<fieldset>
+    <legend>Question</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionText)
+    </div>
+
+    <table>
+        @foreach (var alternative in Model.Alternatives)
+        {
+            <tr>
+                <td>@alternative.AlternativeText</td>
+                <td>@Html.ActionLink("Vote", "Thanks", "Question", new QuestionModel() { AlternativeId = alternative.Id,QuestionId = Model.Id}
+                    ,null)</td>
+            </tr>
+        }
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("See vote results", "Voteresult", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index","Home")
+</p>
